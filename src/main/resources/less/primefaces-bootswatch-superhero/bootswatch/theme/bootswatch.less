@@ -1,4 +1,4 @@
-// Superhero 3.3.5
+// Superhero 3.4.1
 // Bootswatch
 // -----------------------------------------------------
 
@@ -162,6 +162,11 @@ label,
         color: @brand-warning;
     }
 
+    .form-control,
+    .form-control:focus {
+        border: 4px solid @brand-warning;
+    }
+
     .input-group-addon {
         border: none;
     }
@@ -182,6 +187,11 @@ label,
         color: @brand-danger;
     }
 
+    .form-control,
+    .form-control:focus {
+        border: 4px solid @brand-danger;
+    }
+
     .input-group-addon {
         border: none;
     }
@@ -200,6 +210,11 @@ label,
     &.checkbox-inline label,
     .form-control-feedback {
         color: @brand-success;
+    }
+
+    .form-control,
+    .form-control:focus {
+        border: 4px solid @brand-success;
     }
 
     .input-group-addon {
@@ -224,7 +239,7 @@ label,
 .nav {
     .open > a,
     .open > a:hover,
-        .open > a:focus {
+    .open > a:focus {
         border-color: transparent;
     }
 }
@@ -262,7 +277,7 @@ label,
     opacity: 0.4;
 
     &:hover,
-        &:focus {
+    &:focus {
         opacity: 1;
     }
 }
@@ -279,7 +294,7 @@ a.list-group-item {
 
     &.active,
     &.active:hover,
-        &.active:focus {
+    &.active:focus {
         border: none;
     }
 
@@ -289,7 +304,7 @@ a.list-group-item {
         }
 
         &.active:hover,
-            &.active:focus {
+        &.active:focus {
             background-color: darken(@state-success-bg, 5%);
         }
     }
@@ -300,7 +315,7 @@ a.list-group-item {
         }
 
         &.active:hover,
-            &.active:focus {
+        &.active:focus {
             background-color: darken(@state-warning-bg, 5%);
         }
     }
@@ -311,7 +326,7 @@ a.list-group-item {
         }
 
         &.active:hover,
-            &.active:focus {
+        &.active:focus {
             background-color: darken(@state-danger-bg, 5%);
         }
     }
