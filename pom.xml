@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>lv.pakers.primefaces</groupId>
+    <artifactId>primefaces-bootswatch-superhero</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>primefaces-bootswatch-superhero</name>
+
+    <description>
+        A PrimeFaces theme based on Bootswatch Superhero theme https://bootswatch.com/
+    </description>
+
+    <developers>
+        <developer>
+            <name>Oskars Pakers</name>
+            <email>oskars.pakers@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <compressCss>true</compressCss>
+        <themeFile>theme.less</themeFile>
+    </properties>
+
+    <build>
+        <finalName>primefaces-bootswatch-superhero</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/theme.css</include>
+                    <include>**/web-fragment.xml</include>
+                    <include>**/admin-theme.properties</include>
+                    <include>**/primefaces-admin/images/*</include>
+                    <include>**/js/*</include>
+                </includes>
+                <excludes>
+                    <exclude>**/fonts/*</exclude>
+                </excludes>
+            </resource>
+            
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/fonts/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>biz.gabrys.maven.plugins</groupId>
+                <artifactId>lesscss-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>primefaces</id>
+                        <configuration>
+                            <sourceDirectory>${project.basedir}/src/main/resources/less/primefaces-bootswatch-superhero
+                            </sourceDirectory>
+                            <outputDirectory>${project.basedir}/src/main/resources/META-INF/resources/primefaces-bootswatch-superhero
+                            </outputDirectory>
+                            <outputFileFormat>theme.css</outputFileFormat>
+                            <includes>
+                                <include>${themeFile}</include>
+                            </includes>
+                            <compress>${compressCss}</compress>
+                        </configuration>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.19.1</version>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
