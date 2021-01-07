@@ -22,7 +22,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <compressCss>true</compressCss>
-        <themeFile>theme.less</themeFile>
+        <themeFile>theme.scss</themeFile>
     </properties>
 
     <build>
@@ -54,29 +54,19 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>biz.gabrys.maven.plugins</groupId>
-                <artifactId>lesscss-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                    <execution>
-                        <id>primefaces</id>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/resources/less/primefaces-bootswatch-superhero
-                            </sourceDirectory>
-                            <outputDirectory>${project.basedir}/src/main/resources/META-INF/resources/primefaces-bootswatch-superhero
-                            </outputDirectory>
-                            <outputFileFormat>theme.css</outputFileFormat>
-                            <includes>
-                                <include>${themeFile}</include>
-                            </includes>
-                            <compress>${compressCss}</compress>
-                        </configuration>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-
-                </executions>
+                <groupId>org.jasig.maven</groupId>
+                <artifactId>sass-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <source>
+                                <directory>${project.basedir}/src/main/resources/scss/primefaces-bootswatch-superhero</directory>
+                            </source>
+                            <destination>${project.basedir}/src/main/resources/META-INF/resources/primefaces-bootswatch-superhero</destination>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
