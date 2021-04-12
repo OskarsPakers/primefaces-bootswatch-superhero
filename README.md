@@ -1,4 +1,4 @@
 # primefaces-bootswatch-superhero
 
 `mvn package`
-grab theme.css
+grab src/main/resources/META-INF/resources/primefaces-bootswatch-superhero/theme.css

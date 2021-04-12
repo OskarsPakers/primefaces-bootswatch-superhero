@@ -2,6 +2,7 @@
 @import "bootswatch/theme/custom-variables.less";
 @import "bootswatch/theme/bootswatch.less";
 
+@blockquote-font-size: @font-size-base;
 
 body {
   padding-top: 50px; /* make space for navbar */
@@ -213,7 +214,8 @@ textarea.ui-state-error {
   padding: 0;
 }
 
-.ui-selectonemenu-panel ul > li:hover {
+.ui-selectonemenu-panel ul > li:hover,
+.ui-autocomplete-item:hover{
   background-color: @dropdown-link-hover-bg;
 }
 
@@ -923,4 +925,8 @@ body {
   .ui-progressbar-value {
     .progress-bar();
   }
+}
+
+.ui-autocomplete-panel{
+  background-color: #4E5D6C;
 }
